@@ -4,13 +4,13 @@
 
 This project demonstrates a GRC engineering implementation of NIST SP 800-53 CA-7 Continuous Monitoring using Terraform and AWS-native services.
 
-The lab shows how a cloud configuration finding can move through a continuous monitoring workflow:
+The project shows how a cloud configuration finding can move through a continuous monitoring workflow:
 
 Monitoring -> Finding Detection -> Risk Mapping -> POA&M Tracking -> Reporting -> Dashboard
 
 ## What This Lab Builds
 
-This lab deploys:
+This project deploys:
 
 - AWS Config rule for continuous monitoring
 - EventBridge rule for NON_COMPLIANT findings
@@ -34,7 +34,7 @@ AWS Config Managed Rule
 
 ## AWS Services Used
 
-- Terraform: deploys the lab infrastructure
+- Terraform: deploys the project infrastructure
 - AWS Config: monitors AWS resource compliance
 - EventBridge: routes NON_COMPLIANT events
 - SNS: provides finding notification
@@ -52,7 +52,7 @@ This rule checks whether attached EBS volumes are encrypted.
 
 AWS Config produces a technical finding. The POA&M Lambda adds GRC context by mapping the finding to a risk scenario.
 
-For this lab:
+For this project:
 
 - Control ID: CA-7
 - Risk ID: RISK-CLD-003
@@ -108,7 +108,7 @@ This validated:
 
 ## CA-7 Coverage
 
-This lab demonstrates:
+This project demonstrates:
 
 - Continuous monitoring
 - Finding detection
@@ -121,10 +121,10 @@ This lab demonstrates:
 
 ## Limitations
 
-This lab supports CA-7 but does not fully satisfy the entire control by itself.
+This project supports CA-7 but does not fully satisfy the entire control by itself.
 
 Full CA-7 implementation would also require a documented continuous monitoring strategy, defined monitoring frequencies, broader control coverage, remediation SLAs, management review, closure evidence, trend analysis, risk acceptance workflow, and independent assessment or audit validation.
 
 ## Portfolio Summary
 
-Built a risk-based CA-7 continuous monitoring lab using Terraform, AWS Config, EventBridge, SNS, Lambda, DynamoDB, and S3. The lab demonstrates how cloud configuration findings can be mapped to risk scenarios, tracked as POA&M records, and reported through JSON, CSV, and HTML dashboard artifacts.
+Built a risk-based CA-7 continuous monitoring project using Terraform, AWS Config, EventBridge, SNS, Lambda, DynamoDB, and S3. The project demonstrates how cloud configuration findings can be mapped to risk scenarios, tracked as POA&M records, and reported through JSON, CSV, and HTML dashboard artifacts.
