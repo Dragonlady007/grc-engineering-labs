@@ -1,74 +1,38 @@
 # GRC Engineering Portfolio
 
-This repository contains hands-on compliance-as-code projects that translate security and compliance controls into cloud infrastructure, Terraform implementation, automated control evaluation, and machine-readable evidence.
+This repository contains hands-on GRC engineering projects that translate security and compliance requirements into cloud infrastructure, automation, control evidence, and audit-ready reporting.
 
-The goal of this portfolio is to demonstrate how GRC, audit, and security engineering practices can work together through:
+The goal of this portfolio is to demonstrate how GRC, audit, cloud security, and security engineering practices can work together through:
 
-* Infrastructure as code
-* Controls as code
-* Evidence as code
-* Automated control evaluation
-* Framework mapping across NIST 800-53, ISO/IEC 27001:2022, and SOC 2 Trust Services Criteria
+- Infrastructure as code
+- Controls as code
+- Evidence as code
+- Risk-based control monitoring
+- POA&M-style remediation tracking
+- Framework mapping across NIST 800-53, ISO/IEC 27001:2022, and SOC 2 Trust Services Criteria
 
 ## Projects
 
-| Project                            | Description                                                                                                                                              | Framework Mapping                      | Evidence / Report                                        |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | -------------------------------------------------------- |
-| Compliant AWS S3 Control Primitive | Terraform-based AWS S3 security baseline with encryption, public access blocking, versioning, logging, compliance tags, and automated control evaluation | NIST 800-53, ISO/IEC 27001:2022, SOC 2 | `evidence/lab-2-3/`, `reports/aws-s3-control-results.md` |
+| Project | Focus Area | Description | Framework Mapping |
+|---|---|---|---|
+| Compliant AWS S3 Control Primitive | Cloud control baseline | Terraform-based AWS S3 security baseline with encryption, public access blocking, versioning, logging, and compliance tags | NIST 800-53, ISO/IEC 27001:2022, SOC 2 |
+| CA-7 Continuous Monitoring & POA&M Automation | Continuous monitoring / GRC automation | AWS-native monitoring workflow that maps cloud configuration findings to risk scenarios, creates POA&M-style records, and generates JSON, CSV, and HTML dashboard reporting | NIST 800-53 CA-7, CA-5, RA-5, SI-4; ISO/IEC 27001:2022 monitoring and corrective action concepts; SOC 2 CC7 / CC4 concepts |
 
 ## Repository Structure
 
-```text
-repository-root/
-├── evidence/
-│   └── lab-2-3/
-│       ├── plan.json
-│       ├── state.json
-│       ├── plan.pretty.json
-│       └── state.pretty.json
-├── reports/
-│   └── aws-s3-control-results.md
-├── scripts/
-│   └── evaluate_s3_controls.py
-├── terraform/
-│   └── primitives/
-│       └── compliant-s3/
-│           ├── main.tf
-│           ├── variables.tf
-│           ├── outputs.tf
-│           ├── terraform.tfvars.example
-│           └── README.md
-└── .gitignore
-```
-
-## Current Project: Compliant AWS S3 Control Primitive
-
-This project provisions a compliant AWS S3 bucket baseline using Terraform and evaluates the resulting Terraform evidence against defined control expectations.
-
-Implemented capabilities include:
-
-| Capability                     | Control Purpose                                  |
-| ------------------------------ | ------------------------------------------------ |
-| AES-256 server-side encryption | Protect data at rest                             |
-| S3 public access block         | Restrict unauthorized public access              |
-| Required compliance tags       | Support secure configuration and asset ownership |
-| S3 versioning                  | Support recovery and configuration integrity     |
-| S3 server access logging       | Generate audit records for review and monitoring |
-| Automated evidence evaluation  | Produce a concise pass/fail control report       |
-
-## Evidence
-
-Evidence is captured using Terraform JSON outputs:
-
-```bash
-terraform plan -out=tfplan
-terraform show -json tfplan > evidence/plan.json
-terraform show -json > evidence/state.json
-```
-
-The raw JSON files are machine-readable evidence. Pretty-formatted versions are included for easier review, and the control evaluation report summarizes the results in a human-readable pass/fail format.
+- `evidence/` — generated evidence artifacts
+- `reports/` — reporting outputs
+- `scripts/` — helper scripts
+- `terraform/primitives/compliant-s3/` — reusable S3 control primitive
+- `projects/ca7-continuous-monitoring-poam-automation/` — CA-7 continuous monitoring and POA&M automation project
 
 ## Portfolio Focus
 
-This repository is focused on GRC engineering: converting compliance requirements into deployable cloud controls, generating reusable evidence, evaluating control results, and mapping technical implementation to audit frameworks.
+This portfolio is designed to show practical experience with:
 
+- Translating compliance requirements into technical cloud controls
+- Building Terraform-based security baselines
+- Generating machine-readable evidence
+- Mapping technical findings to control IDs and risk scenarios
+- Creating audit-ready reporting artifacts
+- Connecting cloud security monitoring to GRC workflows
